@@ -16,8 +16,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from home.views import example_fun
+from home.views import view_categories, view_tags
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',example_fun, name="ef")
+    path('', view_categories, name="view_categories"),
+    path('tags', view_tags, name="view_tags"),
 ]
