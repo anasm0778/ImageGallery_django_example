@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Gallery</title>
+
+    
+    {% block css %}
+        
+    {% endblock css %}
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-size: 1.05rem;
+            font-family: sans-serif;
+            text-decoration: none;
+        }
+        nav {
+            background-color: #333;
+            color: white;
+            padding: 0 2rem;
+        }
+        ul{
+            list-style: none;
+            display: flex;
+            justify-content: flex-start;
+        }
+        li{
+            padding: .8rem;
+        }
+        a{
+            color: #fff;
+        }
+        li:hover{
+            color: brown;
+        }
+    </style>
+        
+</head>
+<body>
+    <main>
+       <nav>
+        <ul>
+            <li><a href="{% url 'images' %}">🏡 Images</a></li>
+            <li><a href="{% url 'categories' %}">🔖 Categories</a></li>
+            <li><a href="{% url 'tags' %}">🏷 Tags</a></li>
+        </ul>
+       </nav>  
+        {% block content %}
+            
+        {% endblock content %}
+            
+    </main>
+</body>
+</html>

@@ -16,7 +16,7 @@ def view_tags(request):
     tags = Tag.objects.all()
     return render(request, "tags.html", {'tags': tags})
 
-def view_image(request):
+def view_images(request):
     images = Image.objects.all()
-    return render(request, "images.html",{'images': images})
+    return render(request, "index.html",{'images': images})
 #create a  model for storing information about places
