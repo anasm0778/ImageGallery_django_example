@@ -16,7 +16,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from home.views import view_categories, view_tags, view_images
+from home.views import view_categories, view_tags, view_images, upload_image, add_tag, add_category
+from home.views import delete_image
 from django.conf import settings
 from django.conf.urls.static import static
 urlpatterns = [
@@ -24,6 +25,12 @@ urlpatterns = [
     path('categories', view_categories, name="categories"),
     path('tags', view_tags, name="tags"),
     path('', view_images, name="images"),
+
+    path('image/add',upload_image,name="upload_image"),
+    path('tag/add',add_tag,name="add_tag"),
+    path('category/add',add_category,name="add_category"),
+    
+    path('image/delete/<int:id>',delete_image, name="delete_image"),
 ]
 urlpatterns += static(
     settings.MEDIA_URL,
