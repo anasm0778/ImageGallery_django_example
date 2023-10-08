@@ -17,7 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from home.views import view_categories, view_tags, view_images, upload_image, add_tag, add_category
-from home.views import delete_image
+from home.views import delete_image, get_tags
 from django.conf import settings
 from django.conf.urls.static import static
 urlpatterns = [
@@ -31,6 +31,7 @@ urlpatterns = [
     path('category/add',add_category,name="add_category"),
     
     path('image/delete/<int:id>',delete_image, name="delete_image"),
+    path('tag/list', get_tags, name="get_tags"),
 ]
 urlpatterns += static(
     settings.MEDIA_URL,

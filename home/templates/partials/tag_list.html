@@ -1,0 +1,19 @@
+<style>
+    li, button{
+        max-width: fit-content;
+    }
+</style>
+<ul class="tags">
+    <button 
+        hx-get="{% url 'get_tags' %}" 
+        hx-swap="outerhtml" 
+        hx-target=".tags">
+        Refresh
+    </button>
+    {% for tag in tags %}
+       <li>{{tag}}</li>
+    {% empty %}
+        <li>No Tags Yet</li>
+    {% endfor %}      
+            
+</ul>

@@ -1,0 +1,5 @@
+<form hx-post="{% url 'add_tag' %}">
+    {% csrf_token %}
+    <input type="text" name="tag" placeholder="add new tag">
+    <button>save tag</button>
+</form>

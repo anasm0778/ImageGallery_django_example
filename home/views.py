@@ -6,7 +6,13 @@ from .forms import *
 def add_category(request):
     pass
 def add_tag(request):
-    pass
+    if request.method == "POST":
+        name = request.POST.get('tag')
+        if len(name)>2:
+            t = Tag(name=name)
+            t.save()
+        return render(request, 'partials/tag_forms.html')
+    return HttpResponse("<p>Invalid request</p>")
 def upload_image(request):
     if request.method == "POST":
         form = ImageForm(request.POST,request.FILES)
@@ -33,4 +39,7 @@ def view_tags(request):
 def view_images(request):
     images = Image.objects.all()
     return render(request, "index.html",{'images': images})
+def get_tags(request):
+    tags = Tag.objects.all()
+    return render(request, 'partials/tag_list.html',{'tags': tags})
 #create a  model for storing information about places
